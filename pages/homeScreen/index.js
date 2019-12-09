@@ -137,14 +137,14 @@ const style = StyleSheet.create({
   },
   textStyle: {
     fontSize: 20,
-    color: "#ffffff",
+    color: colors.white,
     fontWeight: "bold"
   },
   textStyleBold: {
     fontSize: 20,
     fontFamily: "Roboto",
     fontWeight: "bold",
-    color: "#ffffff"
+    color: colors.white
   },
   flipX: {
     transform: [{ scaleX: -1 }]
@@ -152,18 +152,18 @@ const style = StyleSheet.create({
   bottomBar: {
     flexDirection: "row",
     width: 380,
-    marginTop: 700,
+    marginTop: 600,
     justifyContent: "space-between"
   },
   displayContainer: {
-    marginTop: 50,
+    marginTop: 20,
     justifyContent: "center",
     alignItems: "center",
     flex: -1,
     paddingLeft: 40,
     paddingRight: 40,
-    paddingTop: 20,
-    paddingBottom: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
     backgroundColor: colors.skyBlue,
     borderRadius: 7
   }

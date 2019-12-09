@@ -4,6 +4,7 @@ import AppIntroSlider from "react-native-app-intro-slider";
 
 import HomeScreen from "./pages/homeScreen";
 import MenuScreen from "./pages/menuScreen";
+import MainNavigator from "./pages/appNavScreen";
 
 const slides = [
   {
@@ -13,14 +14,18 @@ const slides = [
   {
     key: "Home",
     renderScreen: <HomeScreen />
+  },
+  {
+    key: "AppNav",
+    renderScreen: <MainNavigator />
   }
 ];
 
 export default class App extends React.Component {
   _renderItem = ({ item }) => {
     return (
-      <View style={styles.mainContainer}>
-        <SafeAreaView style={styles.slide}>{item.renderScreen}</SafeAreaView>
+      <View style={styles.slide} key={item.key}>
+        {item.renderScreen}
       </View>
     );
   };
@@ -46,7 +51,6 @@ AppRegistry.registerComponent("Sweet", () => App);
 
 const styles = StyleSheet.create({
   slide: { flex: 1 },
-  mainContainer: {},
   title: {},
   text: {}
 });

@@ -1,7 +1,6 @@
 package com.example.customelaunchar;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -18,6 +17,8 @@ import com.facebook.react.common.LifecycleState;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+
 import io.realm.react.RealmReactPackage;
 
 public class MainActivity extends FragmentActivity implements DefaultHardwareBackBtnHandler {
@@ -51,6 +52,7 @@ public class MainActivity extends FragmentActivity implements DefaultHardwareBac
                 .addPackage(new MainReactPackage())
                 .addPackage(new RealmReactPackage())
                 .addPackage(new InstalledAppsPackage())
+                .addPackage(new RNGestureHandlerPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
@@ -63,6 +65,7 @@ public class MainActivity extends FragmentActivity implements DefaultHardwareBac
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (!Settings.canDrawOverlays(this)) {
@@ -70,7 +73,7 @@ public class MainActivity extends FragmentActivity implements DefaultHardwareBac
                 }
             }
         }
-        mReactInstanceManager.onActivityResult( this, requestCode, resultCode, data );
+        mReactInstanceManager.onActivityResult(this, requestCode, resultCode, data);
     }
 
     @Override
